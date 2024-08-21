@@ -1,66 +1,104 @@
 /* 通用样式 */
 body {
     font-family: Arial, sans-serif;
-    color: #333;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* 页脚部分的样式 */
-footer {
     background-color: #f4f4f4;
-    padding: 20px;
-    text-align: center;
-    font-size: 14px;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
-footer p {
-    margin: 5px 0;
-}
-
-.footer-signature {
-    font-weight: bold;
-}
-
-/* 页眉部分 */
 header {
     text-align: center;
-    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 header .logo {
-    max-width: 120px;
+    max-width: 100px;
     height: auto;
 }
 
-/* 主要照片部分 */
-.main-photo-section {
-    text-align: center;
-    margin: 20px auto;
+header h1 {
+    font-size: 24px;
+    margin-top: 10px;
 }
 
+main {
+    padding: 20px;
+}
+
+/* 主要照片部分 */
 .main-photo-section img {
-    width: 90%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 600px; /* 调整最大宽度为600px */
     height: auto;
     border: 2px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto 20px auto;
 }
 
-.main-photo-section p {
-    margin-top: 15px;
-    font-size: 16px;
-    line-height: 1.6;
+#life-story {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 訃聞纸本部分 */
+.paper-obituary-section img {
+    width: 80%;
+    max-width: 600px; /* 调整最大宽度为600px */
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.paper-obituary-section h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* 追思与緬懷部分 */
+.remembrance-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.remembrance-item {
+    flex: 1 1 calc(50% - 40px); /* 两栏布局 */
+    max-width: calc(50% - 40px);
+    background-color: #fff;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* 渐显文字效果 */
+.fade-in-text {
+    opacity: 0;
+    transition: opacity 2s ease-in;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
 }
 
 /* 追思相片集 */
 .slideshow-container {
     position: relative;
-    max-width: 90%;
+    max-width: 80%; /* 调整最大宽度为80% */
     margin: 20px auto;
     overflow: hidden;
     border: 2px solid #ddd;
@@ -68,60 +106,35 @@ header .logo {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.slide {
-    display: none;
-    width: 100%;
-    height: auto;
+.slides {
+    display: flex;
+    animation: slide 10s infinite;
 }
 
-.slide img {
+.slides div {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     border-bottom: 2px solid #ddd;
 }
 
-/* 幻灯片导航按钮 */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: #fff;
-    font-weight: bold;
-    font-size: 24px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    user-select: none;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease;
+@keyframes slide {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
 }
 
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* 致贈花籃部分 */
-#flower-basket-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 20px auto;
-}
-
+/* 花篮画廊 */
 .flower-basket-item {
-    max-width: 200px;
+    max-width: 180px; /* 调整最大宽度为180px */
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -133,101 +146,88 @@ header .logo {
 .flower-basket-item img {
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #ddd;
 }
 
 .price {
     margin-top: 10px;
     font-size: 16px;
+    font-weight: bold;
 }
 
-/* 固定联络方式 */
+/* 固定聯絡方式 */
 #fixed-links {
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 #fixed-links a {
-    display: block;
-}
-
-#fixed-links img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
 }
 
 /* 名片及分享按钮部分 */
 #business-card {
     text-align: center;
-    margin: 20px auto;
+    margin: 30px 0;
 }
 
 .business-card-img {
-    max-width: 100%;
+    width: 80%;
+    max-width: 400px;
     height: auto;
-    border: 2px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #share-buttons {
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+#share-buttons p {
+    margin-bottom: 10px;
 }
 
 .share-btn {
-    margin: 0 10px;
     display: inline-block;
+    margin: 0 10px;
 }
 
 .share-btn img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
-/* 渐显文本效果 */
-.fade-in-text {
-    opacity: 0;
-    transition: opacity 1s ease-in;
+/* 页脚部分 */
+footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
-.fade-in-text.show {
-    opacity: 1;
+footer p {
+    margin: 5px 0;
+    color: #333;
 }
 
-/* 响应式设计 */
+.footer-signature {
+    font-weight: bold;
+}
+
+/* 响应式设计：在小屏幕上的适应 */
 @media (max-width: 768px) {
-    footer {
-        font-size: 12px;
-        padding: 15px;
+    .remembrance-item {
+        flex: 1 1 100%; /* 单栏布局 */
+        max-width: 100%;
     }
 
-    .main-photo-section img {
+    .main-photo-section img,
+    .paper-obituary-section img,
+    .business-card-img {
         width: 100%;
-    }
-
-    .slideshow-container {
-        width: 100%;
-    }
-
-    .prev, .next {
-        font-size: 20px;
-        padding: 12px;
-    }
-
-    #fixed-links img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .share-btn img {
-        width: 30px;
-        height: 30px;
+        max-width: none;
     }
 }
