@@ -1,179 +1,62 @@
-/* 通用样式 */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* 字体引入 */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('清松手写体5.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 重设默认样式 */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    box-sizing: border-box;
 }
 
-header {
+/* 名片图片样式 */
+#business-card {
     text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.business-card-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-header .logo {
-    max-width: 100px;
-    height: auto;
-}
-
-header h1 {
-    font-size: 24px;
-    margin-top: 10px;
-}
-
-main {
-    padding: 20px;
-}
-
-/* 主要照片部分 */
-.main-photo-section img {
-    width: 80%;
-    max-width: 600px; /* 调整最大宽度为600px */
-    height: auto;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block;
-    margin: 0 auto 20px auto;
-}
-
-#life-story {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* 訃聞纸本部分 */
-.paper-obituary-section img {
-    width: 80%;
-    max-width: 600px; /* 调整最大宽度为600px */
-    height: auto;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block;
-    margin: 0 auto 20px auto;
-}
-
-.paper-obituary-section h2 {
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-/* 追思与緬懷部分 */
-.remembrance-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.remembrance-item {
-    flex: 1 1 calc(50% - 40px); /* 两栏布局 */
-    max-width: calc(50% - 40px);
-    background-color: #fff;
-    padding: 15px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* 渐显文字效果 */
-.fade-in-text {
-    opacity: 0;
-    transition: opacity 2s ease-in;
-    text-align: center;
-    font-size: 18px;
-    margin: 20px 0;
-}
-
-/* 追思相片集 */
-.slideshow-container {
-    position: relative;
-    max-width: 80%; /* 调整最大宽度为80% */
-    margin: 20px auto;
-    overflow: hidden;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.slides {
-    display: flex;
-    animation: slide 10s infinite;
-}
-
-.slides div {
-    flex-shrink: 0;
-    width: 100%;
+/* 分享按钮样式 */
+#share-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 15px;
 }
 
-.slides img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-bottom: 2px solid #ddd;
-}
-
-@keyframes slide {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
-}
-
-/* 花篮画廊 */
-.flower-basket-item {
-    max-width: 180px; /* 调整最大宽度为180px */
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    background-color: #fff;
-    margin: 10px; /* 在项目四周添加10像素的外边距，避免过于拥挤 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
-}
-
-.flower-basket-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* 图片居中 */
-}
-
-.price {
-    margin-top: 10px;
+.share-btn {
+    display: inline-block;
+    padding: 10px 20px;
     font-size: 16px;
-    font-weight: bold;
-    color: #333; /* 确保文字颜色与背景有良好的对比 */
-    text-align: center; /* 价格文本居中 */
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-/* 悬停效果 */
-.flower-basket-item:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); /* 略微放大效果 */
+.fb-share-btn {
+    background-color: #3b5998;
 }
 
-/* 响应式设计 - 小屏幕适配 */
-@media (max-width: 480px) {
-    .flower-basket-item {
-        max-width: 100%; /* 在小屏幕上让项目占满可用空间 */
-    }
+.line-share-btn {
+    background-color: #00c300;
 }
 
-/* 固定聯絡方式 */
+.share-btn:hover {
+    opacity: 0.8;
+}
+
+/* 固定在右下角的电话和 Line 链接 */
 #fixed-links {
     position: fixed;
     bottom: 20px;
@@ -183,70 +66,306 @@ main {
     gap: 10px;
 }
 
-#fixed-links a {
-    display: inline-block;
-}
-
-/* 名片及分享按钮部分 */
-#business-card {
+.fixed-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #8B4513;
+    color: #fff;
+    border-radius: 50%;
     text-align: center;
-    margin: 30px 0;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.business-card-img {
-    width: 80%;
-    max-width: 400px;
-    height: auto;
+.fixed-link:hover {
+    background-color: #A0522D;
+}
+
+.fixed-link span {
+    font-size: 22px;
+    margin-right: 5px;
+}
+
+/* 基本样式 */
+body {
+    font-family: 'CustomFont', Arial, Helvetica, sans-serif; /* 使用自定义字体，并添加备选方案 */
+    color: #2C2C2C;
+    background-color: #FAF9F7;
+    line-height: 1.8;
+}
+
+#remembrance h2 {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+}
+
+.remembrance-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.remembrance-item {
+    flex: 1 1 300px;
+    background-color: #FAF9F7;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
 }
 
-#share-buttons {
-    margin-top: 20px;
-}
-
-#share-buttons p {
+.remembrance-item h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 22px;
+    color: #6A6A6A;
     margin-bottom: 10px;
 }
 
-.share-btn {
-    display: inline-block;
-    margin: 0 10px;
+.remembrance-item p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    color: #5A5A5A;
+    line-height: 1.6;
 }
 
-.share-btn img {
-    width: 30px;
-    height: 30px;
+.remembrance-item a {
+    color: #2C2C2C;
+    text-decoration: underline;
+    transition: color 0.3s ease;
 }
 
-/* 页脚部分 */
-footer {
-    background-color: #f4f4f4;
-    padding: 20px;
+.remembrance-item a:hover {
+    color: #8B4513;
+}
+
+.remembrance-thanks {
+    margin-top: 20px;
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    color: #2C2C2C;
+    line-height: 1.8;
+}
+
+/* 渐显动画效果 */
+.fade-in-text {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.map-container {
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 幻灯片设计 */
+#slideshow {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    background-color: #FAF9F7;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slideshow-slide {
+    min    width: 100%;
+    flex-shrink: 0;
+}
+
+.slideshow-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.6s ease;
+    border-radius: 3px;
+    user-select: none;
+    z-index: 2;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 花篮展示区设计 */
+#flower-basket-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* 图片之间的间距 */
+    justify-content: center; /* 居中排列 */
+    margin-top: 20px;
+}
+
+.flower-basket-item {
+    max-width: 220px; /* 控制单个花篮图片项的最大宽度 */
     text-align: center;
-    font-family: Arial, sans-serif;
+    margin-bottom: 20px; /* 图片项之间的间距 */
+}
+
+.flower-basket-item img {
+    width: 100%; /* 图片自适应容器宽度 */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 10px; /* 图片与价格之间的间距 */
+}
+
+.flower-basket-item img:hover {
+    transform: scale(1.05);
+}
+
+.flower-basket-item .price {
+    font-size: 18px; /* 增大价格字体 */
+    color: #8B4513; /* 价格字体颜色 */
+    font-weight: bold; /* 使价格加粗 */
+    margin-top: 10px; /* 保持价格与图片的距离 */
+}
+
+/* 时间轴设计 */
+#timeline {
+    margin-top: 50px;
+}
+
+#timeline h2 {
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+}
+
+.VivaTimeline dl {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 30px;
+}
+
+.VivaTimeline dt,
+.VivaTimeline dd {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    margin-left: 50px;
+    padding-bottom: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+}
+
+.VivaTimeline dt {
+    font-weight: bold;
+    color: #2C2C2C;
+}
+
+.VivaTimeline dd .circ {
+    position: absolute;
+    left: -50px;
+    top: 12px;
+    width: 14px;
+    height: 14px;
+    background-color: #2C2C2C;
+    border-radius: 50%;
+}
+
+.VivaTimeline dd .time {
+    position: absolute;
+    left: -75px;
+    top: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C2C2C;
+}
+
+.VivaTimeline .events-header {
+    font-size: 18px;
+    color: #2C2C2C;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.VivaTimeline .events-body {
+    font-size: 16px;
+    color: #5A5A5A;
+    line-height: 1.6;
+}
+
+.VivaTimeline dt:hover,
+.VivaTimeline dd:hover {
+    color: #8B4513;
+}
+
+/* 页脚部分的样式 */
+footer {
+    background-color: #f0f0f0; /* 页脚背景颜色 */
+    padding: 20px; /* 页脚的内边距 */
+    text-align: center; /* 文本居中对齐 */
+    font-family: 'CustomFont', 'Merriweather', serif; /* 使用手写字体和备用字体 */
+    font-size: 14px; /* 字体大小 */
+    color: #5A5A5A; /* 字体颜色 */
+    border-top: 2px solid #8B4513; /* 页脚顶部的分割线 */
 }
 
 footer p {
-    margin: 5px 0;
-    color: #333;
+    margin: 0; /* 移除段落的默认外边距 */
 }
 
+footer a {
+    color: #8B4513; /* 链接颜色 */
+    text-decoration: none; /* 去除链接下划线 */
+    transition: color 0.3s ease; /* 链接颜色的渐变效果 */
+}
+
+footer a:hover {
+    color: #A0522D; /* 鼠标悬停时的链接颜色 */
+}
+
+/* 页脚签名的特殊样式 */
 .footer-signature {
-    font-weight: bold;
+    font-family: 'CustomFont', 'Merriweather', serif; /* 使用自定义字体 */
+    font-size: 16px; /* 字体大小 */
+    color: #8B4513; /* 字体颜色 */
 }
 
-/* 响应式设计：在小屏幕上的适应 */
+/* 响应式设计：在小屏幕上的页脚样式 */
 @media (max-width: 768px) {
-    .remembrance-item {
-        flex: 1 1 100%; /* 单栏布局 */
-        max-width: 100%;
-    }
-
-    .main-photo-section img,
-    .paper-obituary-section img,
-    .business-card-img {
-        width: 100%;
-        max-width: none;
+    footer {
+        font-size: 12px; /* 小屏幕上的字体大小 */
+        padding: 15px; /* 内边距稍微缩小 */
     }
 }
