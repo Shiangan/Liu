@@ -12,54 +12,57 @@
     <link rel="stylesheet" href="obituary.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
     <style>
-        /* 页脚部分的样式 */
-        footer {
-            background-color: #f4f4f4; /* 背景颜色 */
-            padding: 20px; /* 内边距 */
-            text-align: center; /* 文本居中 */
-            font-family: '清松手写体5.ttf', Arial, sans-serif; /* 字体 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f4f4f4;
         }
 
-        footer p {
-            margin: 5px 0; /* 上下外边距 */
-            color: #333; /* 文字颜色 */
+        header {
+            background-color: #4a4a4a;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
 
-        .footer-signature {
-            font-weight: bold; /* 字体加粗 */
+        header img.logo {
+            width: 150px;
         }
 
-        .bold {
-            font-weight: bold; /* 字体加粗 */
-            text-decoration: none; /* 去掉链接下划线 */
+        main {
+            padding: 20px;
         }
 
-        footer img {
-            vertical-align: middle; /* 图标垂直对齐 */
+        .main-photo-section {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        footer a {
-            margin: 0 10px; /* 图标间距 */
+        .main-photo-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* 幻灯片样式 */
         .slideshow-container {
             position: relative;
-            max-width: 100%; /* 确保幻灯片不会超出页面宽度 */
+            max-width: 100%;
             margin: auto;
         }
 
         .slide {
-            display: none; /* 隐藏幻灯片 */
+            display: none;
             text-align: center;
         }
 
         .slide img {
-            width: 100%; /* 确保图片适应幻灯片容器 */
-            height: auto; /* 保持图片比例 */
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         .prev, .next {
@@ -69,10 +72,10 @@
             width: auto;
             padding: 16px;
             margin-top: -22px;
-            color: #fff;
+            color: white;
             font-weight: bold;
             font-size: 18px;
-            transition: 0.6s ease;
+            transition: background-color 0.6s ease;
             border-radius: 0 3px 3px 0;
             user-select: none;
         }
@@ -86,22 +89,87 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        /* 响应式设计：在小屏幕上的页脚样式 */
+        #flower-basket-gallery {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .flower-basket-item {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .flower-basket-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .fade-in-text {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        footer {
+            background-color: #4a4a4a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #fixed-links {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        #fixed-links a {
+            margin: 0 10px;
+        }
+
+        #business-card {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .business-card-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #share-buttons {
+            text-align: center;
+        }
+
+        .share-btn img {
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+        }
+
         @media (max-width: 768px) {
             footer {
-                font-size: 12px; /* 小屏幕上的字体大小 */
-                padding: 15px; /* 内边距稍微缩小 */
+                font-size: 12px;
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 背景音乐 -->
-    <audio id="background-music" autoplay loop hidden>
-        <source src="audio/化為千風.mp3" type="audio/mp3">
-        您的浏览器不支持音频播放。
-    </audio>
-
     <header>
         <img src="image/logo.png" alt="Logo" class="logo">
         <h1>劉及人先生 訃告</h1>
@@ -161,7 +229,7 @@
             </div>
         </section>
 
-        <!-- 感謝信息部分 -->
+        <        <!-- 感謝信息部分 -->
         <div class="remembrance-thanks">
             <p class="fade-in-text"><strong>感謝親友們在這段時間的慰問與關心，您的關懷和鼓勵，陪伴我們度過了這段艱難的時光，敬邀您，與我們一同緬懷及人先生的美好回憶。</strong></p>
         </div>
@@ -189,7 +257,7 @@
             <a href="javascript:void(0);" id="show-flower-baskets" class="btn"><strong>致贈花籃</strong></a>
 
             <!-- 花篮画廊，默认隐藏 -->
-            <div id="flower-basket-gallery" style="display: none;">
+            <div id="flower-basket-gallery">
                 <div class="flower-basket-item">
                     <img src="image/花籃A.JPG" alt="花籃A">
                     <p class="price"><strong>A款NT$2,500/1對</strong></p>
@@ -229,10 +297,10 @@
         <!-- 固定聯絡方式 -->
         <div id="fixed-links">
             <a href="tel:0978583699" class="bold">
-                <img src="image/24小時專線.png" alt="24小時服務電話" style="width: 70px; height: 30px;">
+                <img src="image/24小時專線.png" alt="24小時服務電話">
             </a>
             <a href="https://line.me/ti/p/lAYTmfcqvp" target="_blank" class="bold">
-                <img src="image/IMG_4177.webp" alt="LINE 聯絡我們" style="width: 50px; height: 50px;">
+                <img src="image/IMG_4177.webp" alt="LINE 聯絡我們">
             </a>
         </div>
 
@@ -268,7 +336,6 @@
                     audio.muted = false;
                 }).catch(error => {
                     console.log('Autoplay was prevented:', error);
-                    // 如果自動播放被阻止，考慮添加用戶交互提示
                 });
             }
         };
@@ -298,7 +365,7 @@
         // 花篮画廊显示/隐藏功能
         document.getElementById('show-flower-baskets').addEventListener('click', function() {
             const gallery = document.getElementById('flower-basket-gallery');
-            if (gallery.style.display === 'none') {
+            if (gallery.style.display === 'none' || gallery.style.display === '') {
                 gallery.style.display = 'flex';
             } else {
                 gallery.style.display = 'none';
