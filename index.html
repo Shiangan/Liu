@@ -9,31 +9,38 @@
     <meta property="og:url" content="https://shiangan.com/Shiangan/Liu-Jiren">
     <meta property="og:type" content="website">
     <title>訃聞公告</title>
-    <link rel="stylesheet" href="obituary.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans TC', Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
-            background: #f4f4f4;
+            background: #f9f9f9;
         }
-
+        
         header {
-            background-color: #4a4a4a;
-            color: white;
-            padding: 20px;
+            background-color: #333;
+            color: #fff;
             text-align: center;
+            padding: 20px 0;
         }
 
-        header img.logo {
-            width: 150px;
+        header .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        header h1 {
+            margin: 10px 0 0;
+            font-size: 24px;
         }
 
         main {
             padding: 20px;
+            max-width: 1200px;
+            margin: auto;
         }
 
         .main-photo-section {
@@ -42,10 +49,58 @@
         }
 
         .main-photo-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-photo-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .paper-obituary-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .paper-obituary-section img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #remembrance {
+            margin-bottom: 20px;
+        }
+
+        #remembrance h2 {
+            font-size: 22px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .remembrance-details {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .remembrance-item {
+            margin-bottom: 15px;
+        }
+
+        .remembrance-item h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .remembrance-item p {
+            margin: 0;
         }
 
         .slideshow-container {
@@ -61,8 +116,8 @@
 
         .slide img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .prev, .next {
@@ -72,96 +127,164 @@
             width: auto;
             padding: 16px;
             margin-top: -22px;
-            color: white;
+            color: #fff;
             font-weight: bold;
             font-size: 18px;
-            transition: background-color 0.6s ease;
-            border-radius: 0 3px 3px 0;
+            transition: 0.6s ease;
+            border-radius: 3px;
             user-select: none;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .next {
             right: 0;
-            border-radius: 3px 0 0 3px;
         }
 
         .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        #donate-flower {
+            margin-bottom: 20px;
+        }
+
+        #donate-flower h2 {
+            font-size: 22px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        #donate-flower .btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #donate-flower .btn:hover {
+            background-color: #555;
         }
 
         #flower-basket-gallery {
-            display: none;
-            margin-top: 20px;
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
         }
 
         .flower-basket-item {
-            display: inline-block;
-            margin: 10px;
+            width: calc(33.333% - 30px);
             text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            background: #fff;
         }
 
         .flower-basket-item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
 
-        .fade-in-text {
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-
-        footer {
-            background-color: #4a4a4a;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        footer a {
-            color: #f4f4f4;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+        .flower-basket-item .price {
+            font-size: 18px;
+            color: #333;
         }
 
         #fixed-links {
             position: fixed;
             bottom: 20px;
             right: 20px;
+            display: flex;
+            gap: 10px;
             z-index: 1000;
         }
 
         #fixed-links a {
-            margin: 0 10px;
+            display: block;
+        }
+
+        #fixed-links img {
+            width: 50px;
+            height: 50px;
         }
 
         #business-card {
             text-align: center;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
 
-        .business-card-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        #business-card img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         #share-buttons {
             text-align: center;
+            margin-top: 20px;
         }
 
-        .share-btn img {
-            width: 30px;
-            height: 30px;
-            margin: 0 5px;
+        #share-buttons p {
+            font-size: 18px;
+        }
+
+        #share-buttons .share-btn {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        #share-buttons .share-btn img {
+            width: 40px;
+            height: 40px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            position: relative;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .footer-signature {
+            font-weight: bold;
+        }
+
+        .fade-in-text {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        .fade-in-text.visible {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
+            .flower-basket-item {
+                width: calc(50% - 15px);
+            }
+
+            #donate-flower .btn {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
             footer {
                 font-size: 12px;
                 padding: 15px;
@@ -176,7 +299,6 @@
     </header>
 
     <main>
-        <!-- 主要照片部分 -->
         <section class="main-photo-section">
             <img id="main-photo" src="image/劉及人的主要照片.JPG" alt="追思照片">
             <p id="life-story">
@@ -186,7 +308,6 @@
             <p>將設奠於113年08月30日舉行追思會儀式，感謝親友們的致意與陪伴，給予及人先生最深的祝福，家人們銘記在心，衷心感謝。</p>
         </section>
 
-        <!-- 訃告紙本部分 -->
         <section class="paper-obituary-section">
             <h2><strong>訃告正本</strong></h2>
             <a href="劉及人訃聞.JPG" data-lightbox="paper-obituary" data-title="訃聞紙本">
@@ -194,7 +315,6 @@
             </a>
         </section>
 
-        <!-- 追思與緬懷部分 -->
         <section id="remembrance">
             <h2><strong>追思緬懷</strong></h2>
             <div class="remembrance-details">
@@ -216,7 +336,6 @@
                     <p><strong>上午 11:30 公奠禮</strong></p>
                 </div>
 
-                <!-- 地圖嵌入 -->
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.6055113137354!2d121.55302529999999!3d25.0135172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa3b0390f463%3A0x9082f68f52193107!2z5Y-w5YyX5biC5oe35oSb6aSo!5e0!3m2!1szh-TW!2stw!4v1723546074779!5m2!1szh-TW!2stw"
                     width="100%" 
@@ -229,12 +348,10 @@
             </div>
         </section>
 
-        <        <!-- 感謝信息部分 -->
         <div class="remembrance-thanks">
             <p class="fade-in-text"><strong>感謝親友們在這段時間的慰問與關心，您的關懷和鼓勵，陪伴我們度過了這段艱難的時光，敬邀您，與我們一同緬懷及人先生的美好回憶。</strong></p>
         </div>
 
-        <!-- 追思相片集 -->
         <section>
             <h2><strong>追思相片集</strong></h2>
             <div class="slideshow-container">
@@ -250,13 +367,11 @@
             </div>
         </section>
 
-        <!-- 致贈花籃部分 -->
         <section id="donate-flower">
             <h2><strong>致贈花籃</strong></h2>
             <p>為求會場一致性，致贈花籃請參見以下選項：</p>
             <a href="javascript:void(0);" id="show-flower-baskets" class="btn"><strong>致贈花籃</strong></a>
 
-            <!-- 花篮画廊，默认隐藏 -->
             <div id="flower-basket-gallery">
                 <div class="flower-basket-item">
                     <img src="image/花籃A.JPG" alt="花籃A">
@@ -294,7 +409,6 @@
             <p>訂購花籃請點選<a href="https://line.me/ti/p/lAYTmfcqvp" target="_blank"><strong>這裡</strong></a>。</p>
         </section>
 
-        <!-- 固定聯絡方式 -->
         <div id="fixed-links">
             <a href="tel:0978583699" class="bold">
                 <img src="image/24小時專線.png" alt="24小時服務電話">
@@ -304,9 +418,8 @@
             </a>
         </div>
 
-        <!-- 名片及分享按钮部分 -->
         <section id="business-card">
-            <img src="image/名片頁.jpg" alt="名片" class="business-card-img">
+            <img src="image/名片頁.jpg" alt="名片">
             <div id="share-buttons">
                 <p><strong>分享此頁面</strong></p>
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://shiangan.github.io/Liu-Jiren/" target="_blank" class="share-btn fb-share-btn">
@@ -319,27 +432,12 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
     <footer>
         <p>承辦禮儀公司 祥安生命有限公司 ｜ 禮儀師：陳妍如</p>
-        <p>© 2024 劉及人訃聞公告 | <span class="footer-signature">祥安生命有限公司</span>版權所有 |</p>
+        <p>© 2024 劉及人訃聞公告 | <span class="footer-signature">祥安生命有限公司</span>版權所有</p>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // 音樂自動播放
-        window.onload = function() {
-            const audio = document.getElementById('background-music');
-            if (audio) {
-                audio.play().then(() => {
-                    // 播放成功後取消靜音
-                    audio.muted = false;
-                }).catch(error => {
-                    console.log('Autoplay was prevented:', error);
-                });
-            }
-        };
-
         // 幻灯片播放功能
         let slideIndex = 0;
 
@@ -349,36 +447,42 @@
             slideIndex++;
             if (slideIndex > slides.length) { slideIndex = 1; }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 3000); // 每隔3秒切換幻燈片
+            setTimeout(showSlides, 3000); //             // 每隔3秒换一张幻灯片
         }
-
+        showSlides();
+        
+        // 幻灯片前后切换功能
         function plusSlides(n) {
-            slideIndex += n;
             const slides = document.querySelectorAll(".slide");
+            slides.forEach(slide => slide.style.display = "none");
+            slideIndex += n;
             if (slideIndex > slides.length) { slideIndex = 1; }
             if (slideIndex < 1) { slideIndex = slides.length; }
-            showSlides();
+            slides[slideIndex - 1].style.display = "block";
         }
 
-        showSlides(); // 初次調用以顯示第一張幻燈片
-
-        // 花篮画廊显示/隐藏功能
-        document.getElementById('show-flower-baskets').addEventListener('click', function() {
-            const gallery = document.getElementById('flower-basket-gallery');
-            if (gallery.style.display === 'none' || gallery.style.display === '') {
-                gallery.style.display = 'flex';
+        // 显示/隐藏花篮图片
+        document.getElementById("show-flower-baskets").addEventListener("click", function() {
+            const gallery = document.getElementById("flower-basket-gallery");
+            if (gallery.style.display === "none" || gallery.style.display === "") {
+                gallery.style.display = "flex";
             } else {
-                gallery.style.display = 'none';
+                gallery.style.display = "none";
             }
         });
 
-        // 渐显文本效果
-        const fadeInTexts = document.querySelectorAll('.fade-in-text');
-        fadeInTexts.forEach((text, index) => {
-            setTimeout(() => {
-                text.style.opacity = '1';
-            }, index * 1500); // 每段延迟1.5秒
+        // 文字淡入效果
+        document.addEventListener("DOMContentLoaded", function() {
+            const textElements = document.querySelectorAll(".fade-in-text");
+            textElements.forEach(el => {
+                setTimeout(() => {
+                    el.classList.add("visible");
+                }, 1000);
+            });
         });
     </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
