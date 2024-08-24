@@ -1,68 +1,153 @@
-/* 整体页面样式 */
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+/* 全局样式 */
+body, html {
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    font-family: "Heiti TC", "Microsoft JhengHei", sans-serif;
+    background-color: #f4f4f4;
     color: #333;
-    overflow-x: hidden;
 }
 
-/* 过渡效果 */
-.fade-in {
+/* 背景音乐样式 */
+audio {
+    display: none;
+}
+
+/* 主体容器样式 */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* 主要照片样式 */
+#main-photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    position: relative;
     opacity: 0;
-    transition: opacity 2s ease-in-out;
+    transition: opacity 3s ease-in-out;
 }
 
-/* 标题样式 */
-header h1 {
-    font-size: 2.5em;
-    color: #1a1a1a;
+#main-photo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 内容部分样式 */
+#content {
+    max-width: 900px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
     text-align: center;
-    margin-top: 20px;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
-/* 主要照片部分 */
+header .logo {
+    width: 150px;
+}
+
+header h1 {
+    margin: 10px 0;
+    font-size: 28px;
+    color: #555;
+}
+
+/* 主要内容样式 */
 .main-photo-section {
     text-align: center;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 80%;
+    margin-bottom: 40px;
 }
 
-.main-photo-section img {
-    max-width: 100%;
-    border-radius: 10px;
+#life-story {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+        font-size: 2rem;
+    color: #333;
+    font-weight: bold;
 }
 
-/* 幻灯片样式 */
+/* 主要内容部分 */
+.main-photo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#life-story {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* 訃告纸本样式 */
+.paper-obituary-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.paper-obituary-section img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+/* 追思與缅怀部分样式 */
+#remembrance {
+    margin-bottom: 30px;
+}
+
+.remembrance-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.remembrance-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.remembrance-item p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* 追思相片集样式 */
 .slideshow-container {
     position: relative;
     max-width: 100%;
     margin: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .slide {
     display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
 }
 
 .slide img {
     width: 100%;
     height: auto;
-    display: block;
 }
 
+/* 幻灯片导航按钮 */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -70,185 +155,127 @@ header h1 {
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    color: #fff;
+    color: white;
     font-weight: bold;
     font-size: 18px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
     user-select: none;
-    transition: background 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .next {
-    right: 10px;
-}
-
-.prev {
-    left: 10px;
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 .prev:hover, .next:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* 追思与缅怀部分 */
-#remembrance {
-    padding: 40px 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 80%;
-}
-
-#remembrance h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #1a1a1a;
-    font-weight: 700;
-    text-align: center;
-}
-
-#remembrance .remembrance-details {
-    font-size: 1.2em;
-    line-height: 1.6;
-}
-
-/* 感谢信息部分 */
+/* 感谢信息样式 */
 .remembrance-thanks {
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 80%;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .remembrance-thanks p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
+    font-size: 1.25rem;
+    color: #777;
 }
 
-/* 致赠花篮部分 */
+/* 花篮部分样式 */
 #donate-flower {
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 80%;
-}
-
-#donate-flower h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #1a1a1a;
-    font-weight: 700;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-#donate-flower p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
-    text-align: center;
-}
-
-.flower-basket-gallery {
+#flower-basket-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
 }
 
 .flower-basket-item {
-    flex: 1 1 calc(33.333% - 20px);
-    box-sizing: border-box;
-    background: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 150px;
     text-align: center;
-    padding: 10px;
 }
 
 .flower-basket-item img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
 }
 
-.flower-basket-item .price {
-    font-size: 1.2em;
+.price {
     margin-top: 10px;
+    font-size: 1.1rem;
     color: #333;
 }
 
-/* 联系方式部分 */
-#fixed-links {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
-}
-
-#fixed-links a {
-    display: block;
-}
-
-#fixed-links img {
-    width: 50px;
-    height: auto;
-}
-
-/* 名片及分享按钮部分 */
+/* 名片及分享按钮样式 */
 #business-card {
     text-align: center;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 80%;
+    margin-top: 30px;
 }
 
-#business-card img {
+.business-card-img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 
 #share-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-.share-btn {
+#share-buttons .share-btn {
     display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #f1f1f1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+}
+
+#share-buttons .share-btn img {
+    width: 100%;
+    height: auto;
+}
+
+/* 联系方式样式 */
+.fixed-links {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.contact-link {
+    display: inline-block;
     text-align: center;
-    line-height: 40px;
-    transition: background 0.3s ease;
 }
 
-.share-btn img {
-    width: 24px;
-    height: 24px;
+.contact-link img {
+    width: 100px;
+    height: auto;
 }
 
-.share-btn:hover {
-    background: #e1e1e1;
+/* 动画效果 */
+.fade-in-text {
+    opacity: 0;
+    animation: fadeInText 2s forwards;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 主要照片渐显效果 */
+@keyframes fadeInMainPhoto {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* 页脚样式 */
